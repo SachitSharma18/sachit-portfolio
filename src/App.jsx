@@ -1,4 +1,14 @@
-import { FaGithub } from "react-icons/fa";
+import {
+  FaDownload,
+  FaEnvelope,
+  FaGithub,
+  FaLinkedin,
+  FaPhone,
+} from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+
+const CV_DRIVE_URL =
+  "https://drive.google.com/file/d/1yTLSHey1ag120aNmoDNvP8rEMIh50WeD/view?usp=drive_link";
 
 const qualifications = [
   {
@@ -53,20 +63,20 @@ const projects = [
 
 const certifications = [
   {
-    title: "Introduction to Python",
-    issuer: "Infosys Springboard",
-    date: "February 2024",
-    description:
-      "Completed Python fundamentals course covering syntax, logic building, and programming basics.",
-    pdf: "/certificates/python.pdf",
-  },
-  {
     title: "Responsive Web Design",
     issuer: "freeCodeCamp",
     date: "October 2023",
     description:
       "Completed responsive web design certification covering HTML, CSS, layouts, and modern web page structuring.",
-    pdf: "/certificates/webdesign.pdf",
+    url: "https://drive.google.com/file/d/1Ltm2_KFOe-6sSu1Lmh5p1eoaRHG-iV5j/view?usp=drive_link",
+  },
+  {
+    title: "Introduction to Python",
+    issuer: "Infosys Springboard",
+    date: "February 2024",
+    description:
+      "Completed Python fundamentals course covering syntax, logic building, and programming basics.",
+    url: "https://drive.google.com/file/d/1P47qISLwriPcL2LzhVIBcf63MXCdfNoS/view?usp=drive_link",
   },
   {
     title: "Privacy and Security in Online Social Media",
@@ -74,7 +84,7 @@ const certifications = [
     date: "Jul–Oct 2025",
     description:
       "Completed NPTEL certification in online privacy, digital security, and social media risk awareness. Elite certified with score 61%.",
-    pdf: "/certificates/nptel.pdf",
+    url: "https://drive.google.com/file/d/1I3xHsAo2XFPVFCRpb_8ukxwNZqxd4itt/view?usp=drive_link",
   },
 ];
 
@@ -120,17 +130,47 @@ export default function App() {
               <a className="btn btn-primary" href="#about">
                 About Me
               </a>
-              <a className="btn btn-secondary" href="/resume.pdf">
+              <a
+                className="btn btn-secondary"
+                href={CV_DRIVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Download Resume
               </a>
-              <a
-                className="btn btn-ghost"
-                href="https://github.com/SachitSharma18"
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub
-              </a>
+              <ul className="hero-social" aria-label="Social and email">
+                <li>
+                  <a
+                    className="hero-social-link"
+                    href="https://github.com/SachitSharma18"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub profile"
+                  >
+                    <FaGithub aria-hidden />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="hero-social-link"
+                    href="https://www.linkedin.com/in/sachitsharma/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn profile"
+                  >
+                    <FaLinkedin aria-hidden />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="hero-social-link"
+                    href="mailto:sachituna18@gmail.com"
+                    aria-label="Email Sachit Sharma"
+                  >
+                    <SiGmail aria-hidden />
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
@@ -255,19 +295,18 @@ export default function App() {
 
         <section id="certifications" className="certifications section">
           <div className="container">
-            <p className="eyebrow">Credentials</p>
             <h2 className="section-title">Certifications</h2>
 
             <div className="certifications-grid">
               {certifications.map((cert) => (
-                <article key={cert.pdf} className="cert-card">
+                <article key={cert.url} className="cert-card">
                   <h3 className="cert-title">{cert.title}</h3>
                   <p className="cert-issuer">Issued by {cert.issuer}</p>
                   <p className="cert-date">{cert.date}</p>
                   <p className="cert-desc">{cert.description}</p>
                   <a
                     className="cert-link"
-                    href={cert.pdf}
+                    href={cert.url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -319,7 +358,91 @@ export default function App() {
             </ol>
           </div>
         </section>
+
+        <section id="contact" className="contact section">
+          <div className="container contact-inner">
+            <p className="eyebrow contact-eyebrow">Get in touch</p>
+            <h2 className="contact-heading">
+              Let&apos;s build{" "}
+              <span className="contact-heading-accent">something great</span>
+            </h2>
+            <p className="contact-lede">
+              I&apos;m always open to new opportunities, collaborations, and
+              interesting conversations.
+            </p>
+
+            <div className="contact-actions">
+              <a
+                className="btn btn-primary contact-btn contact-btn-primary"
+                href="mailto:sachituna18@gmail.com"
+              >
+                <FaEnvelope aria-hidden className="contact-btn-icon" />
+                Say Hello
+              </a>
+              <a
+                className="btn btn-secondary contact-btn"
+                href={CV_DRIVE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaDownload aria-hidden className="contact-btn-icon" />
+                Download Resume
+              </a>
+            </div>
+
+            <ul className="contact-social">
+              <li>
+                <a
+                  className="contact-social-link"
+                  href="mailto:sachituna18@gmail.com"
+                  aria-label="Email Sachit Sharma"
+                >
+                  <FaEnvelope aria-hidden />
+                </a>
+              </li>
+              <li>
+                <a
+                  className="contact-social-link"
+                  href="https://github.com/SachitSharma18"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub profile"
+                >
+                  <FaGithub aria-hidden />
+                </a>
+              </li>
+              <li>
+                <a
+                  className="contact-social-link"
+                  href="https://www.linkedin.com/in/sachitsharma/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn profile"
+                >
+                  <FaLinkedin aria-hidden />
+                </a>
+              </li>
+              <li>
+                <a
+                  className="contact-social-link"
+                  href="tel:9317413018"
+                  aria-label="Call 9317413018"
+                >
+                  <FaPhone aria-hidden />
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
       </main>
+
+      <footer className="site-footer">
+        <div className="container site-footer-inner">
+          <p className="site-footer-copy">
+            © 2026 Sachit Sharma. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
